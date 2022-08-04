@@ -1,57 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:startup_namer/currentWeather.dart';
 import 'package:startup_namer/randomWords.dart';
+import 'package:startup_namer/triviaWidget.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final wordPair = WordPair.random(); // Add this line.
-//     return MaterialApp(
-//       title: 'Welcome to Flutter',
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: const Text('Welcome to Flutter'),
-//         ),
-//         body: Center(                          // Drop the const, and
-//           //child: Text('Hello World'),        // Replace this text...
-//           child: Text(wordPair.asPascalCase),  // With this text.
-//         ),
-//       ),
-//     );
-//   }
-// }
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final wordPair = WordPair.random();  // DELETE
-
-    // return MaterialApp(
-    //   title: 'Welcome to Flutter',
-    //   home: Scaffold(
-    //     appBar: AppBar(
-    //       title: Text('Welcome to Flutter'),
-    //     ),
-    //     body: const Center(                     // Add the const
-    //       //child: Text(wordPair.asPascalCase), // REPLACE with...
-    //       child: RandomWords(),                 // ...this line
-    //     ),
-    //   ),
-    // );
     return MaterialApp(
-        title: 'Startup Name Generator',
+        title: 'Flutter App',
         home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Startup Name Generator'),
-          ),
-          body: const Center(
-            child: CurrentWeatherPage(),
-          ),
-        ));
+            appBar: AppBar(
+              title: const Text('My Flutter App'),
+            ),
+            body: Column(
+              children: const <Widget>[
+                SizedBox(
+                  height: 15.0,
+                ),
+                Center(child: CurrentWeatherPage()),
+                SizedBox(
+                  height: 15.0,
+                ),
+                Center(child: TriviaWidget()),
+              ],
+            )));
   }
 }
