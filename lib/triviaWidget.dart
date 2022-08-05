@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:startup_namer/models/weather.dart';
 import 'models/trivia.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 
 class TriviaWidget extends StatefulWidget {
   const TriviaWidget({super.key});

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "841363058221",
+    "project_id": "reactdashboardapp",
+    "storage_bucket": "reactdashboardapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841363058221:android:6e5b057ac114aea2a152a4",
+        "android_client_info": {
+          "package_name": "com.example.startup_namer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841363058221-sf3k5fvhr78lepai18rlmimg25plaiue.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNd442SDQ0-yq-97FJeZObW99oayL-5Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841363058221-sf3k5fvhr78lepai18rlmimg25plaiue.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
