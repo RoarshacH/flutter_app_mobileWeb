@@ -29,7 +29,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(15),
                     child: const Text(
-                      'Login',
+                      'Register Here',
                       style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.w500,

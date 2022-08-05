@@ -25,7 +25,16 @@ class _HomePageState extends State<HomePage> {
             ),
             Center(
                 child: ElevatedButton(
-                    onPressed: logout(context), child: const Text('Logout'))),
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut().then((value) => {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignInWidget()),
+                            )
+                          });
+                    },
+                    child: const Text('Logout'))),
             const SizedBox(
               height: 15.0,
             ),
@@ -39,11 +48,11 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-logout(context) {
-  FirebaseAuth.instance.signOut().then((value) => {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const SignInWidget()),
-        )
-      });
-}
+// logout(context) {
+//   FirebaseAuth.instance.signOut().then((value) => {
+//         Navigator.push(
+//           context,
+//           MaterialPageRoute(builder: (context) => const SignInWidget()),
+//         )
+//       });
+// }
