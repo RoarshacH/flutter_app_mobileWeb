@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:startup_namer/homePage.dart';
+import 'package:startup_namer/signIn.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +12,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Flutter App', home: HomePage());
+    return const MaterialApp(title: 'Flutter App', home: SignInWidget());
   }
 }

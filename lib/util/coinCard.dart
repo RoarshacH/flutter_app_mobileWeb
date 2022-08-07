@@ -15,12 +15,16 @@ class CoinCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const textCol = Color(0xff82204a);
+    const borderCol = Color(0xFF558c8c);
+
     return Padding(
       padding: const EdgeInsets.only(top: 15, left: 10, right: 10),
       child: Container(
         height: 100,
         decoration: BoxDecoration(
           color: Colors.grey[300],
+          border: Border.all(color: borderCol),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -49,8 +53,8 @@ class CoinCard extends StatelessWidget {
                     fit: BoxFit.scaleDown,
                     child: Text(
                       name,
-                      style: TextStyle(
-                        color: Colors.grey[900],
+                      style: const TextStyle(
+                        color: textCol,
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
@@ -67,8 +71,8 @@ class CoinCard extends StatelessWidget {
                 children: [
                   Text(
                     "\$${price.toDouble().toString()}",
-                    style: TextStyle(
-                      color: Colors.grey[900],
+                    style: const TextStyle(
+                      color: textCol,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),

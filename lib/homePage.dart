@@ -13,43 +13,55 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('My Flutter App'),
-        ),
+        backgroundColor: const Color(0xFFeff7ff),
         body: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(5, 40, 5, 20),
             child: Column(
-          children: <Widget>[
-            const SizedBox(
-              height: 15.0,
-            ),
-            Center(
-                child: ElevatedButton(
-                    onPressed: () {
-                      FirebaseAuth.instance.signOut().then((value) => {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SignInWidget()),
-                            )
-                          });
-                    },
-                    child: const Text('Logout'))),
-            const SizedBox(
-              height: 15.0,
-            ),
-            const Center(child: CurrentWeatherPage()),
-            const SizedBox(
-              height: 15.0,
-            ),
-            const Center(child: TriviaWidget()),
-            const SizedBox(
-              height: 15.0,
-            ),
-            const BitcoinWidget()
-          ],
-        )));
+              children: <Widget>[
+                const SizedBox(
+                  height: 15.0,
+                ),
+                Text(
+                  "Welcome \n ${user.email.toString()}",
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 28,
+                      color: Color(0xff82204a)),
+                ),
+                const SizedBox(
+                  height: 15.0,
+                ),
+                Center(
+                    child: ElevatedButton(
+                        onPressed: () {
+                          FirebaseAuth.instance.signOut().then((value) => {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SignInWidget()),
+                                )
+                              });
+                        },
+                        child: const Text('Logout'))),
+                const SizedBox(
+                  height: 15.0,
+                ),
+                const Center(child: CurrentWeatherPage()),
+                const SizedBox(
+                  height: 15.0,
+                ),
+                const Center(child: TriviaWidget()),
+                const SizedBox(
+                  height: 15.0,
+                ),
+                const BitcoinWidget()
+              ],
+            )));
   }
 }

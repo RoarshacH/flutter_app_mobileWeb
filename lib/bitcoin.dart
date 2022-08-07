@@ -64,15 +64,22 @@ class _BitcoinWidgetState extends State<BitcoinWidget> {
 
   @override
   Widget build(BuildContext context) {
+    const textCol = Color(0xff82204a);
+    const textHeadCol = Color.fromARGB(255, 56, 26, 56);
+    const borderCol = Color(0xFF558c8c);
     return Container(
-        decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
+        decoration: BoxDecoration(border: Border.all(color: borderCol)),
         child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
           Container(
               margin: const EdgeInsets.all(10.0),
               child: const Text(
                 "Bitcoin Prices",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 36,
+                    color: textHeadCol,
+                    decoration: TextDecoration.underline),
               )),
           getTextWidgets()
         ]));

@@ -42,29 +42,37 @@ class _TriviaWidgetState extends State<TriviaWidget> {
 }
 
 Widget triviaBox(Trivia _trivia, bool visible, VoidCallback toggle) {
+  const textCol = Color(0xff82204a);
+  const textHeadCol = Color(0xff310c1c);
+  const borderCol = Color(0xFF558c8c);
+
   return Container(
-      decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
+      decoration: BoxDecoration(border: Border.all(color: borderCol)),
       child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
         Container(
             margin: const EdgeInsets.all(10.0),
             child: const Text(
               "Quick Trivia",
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 36,
+                  color: textHeadCol,
+                  decoration: TextDecoration.underline),
             )),
         Container(
             margin: const EdgeInsets.all(5.0),
             child: Text(
               _trivia.category,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20, color: textCol),
             )),
         Container(
             margin: const EdgeInsets.all(5.0),
             child: Text(
               "Dificulaty:${_trivia.difficulty}",
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16, color: textCol),
             )),
         Center(
           child: Container(
@@ -72,13 +80,16 @@ Widget triviaBox(Trivia _trivia, bool visible, VoidCallback toggle) {
               child: Text(
                 String.fromCharCodes(Runes(_trivia.question)),
                 textAlign: TextAlign.center,
-                style:
-                    const TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+                style: const TextStyle(
+                    fontSize: 18, fontStyle: FontStyle.italic, color: textCol),
               )),
         ),
         Container(
             margin: const EdgeInsets.all(5.0),
-            child: Text("Answer: ${_trivia.correctAnswer}")),
+            child: Text(
+              "Answer: ${_trivia.correctAnswer}",
+              style: const TextStyle(color: textCol),
+            )),
         ElevatedButton.icon(
           icon: const Icon(Icons.question_answer),
           label: const Text('Refresh'),
