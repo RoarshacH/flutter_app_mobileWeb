@@ -1,6 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:startup_namer/homePage.dart';
 import 'package:startup_namer/signIn.dart';
@@ -124,7 +122,7 @@ Future signUp(email, password, confirmPassword, context) async {
           .createUserWithEmailAndPassword(email: email, password: password)
           .then((value) => {
                 _displayDialog(context, "Success", "UserCreated Successfully"),
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const HomePage()),
                 )

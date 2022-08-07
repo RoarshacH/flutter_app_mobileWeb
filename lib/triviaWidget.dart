@@ -12,20 +12,28 @@ class TriviaWidget extends StatefulWidget {
 
 class _TriviaWidgetState extends State<TriviaWidget> {
   late Trivia _trivia;
+  bool _visible = false;
+  void _toggle() {
+    setState(() {
+      _visible = !_visible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       builder: (context, snapshot) {
+        // ignore: unnecessary_null_comparison
         if (snapshot != null) {
-          this._trivia = snapshot.data as Trivia;
-          if (this._trivia == null) {
+          _trivia = snapshot.data as Trivia;
+          // ignore: unnecessary_null_comparison
+          if (_trivia == null) {
             return Text("Error getting weather");
           } else {
-            return triviaBox(_trivia);
+            return triviaBox(_trivia, _visible, _toggle);
           }
         } else {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }
       },
       future: getTrivia(),
@@ -33,31 +41,52 @@ class _TriviaWidgetState extends State<TriviaWidget> {
   }
 }
 
-Widget triviaBox(Trivia _trivia) {
-  return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-    Container(
-        margin: const EdgeInsets.all(10.0),
-        child: const Text(
-          "Quick Trivia",
-          textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 55),
-        )),
-    Container(
-        margin: const EdgeInsets.all(5.0),
-        child: Text("Category: ${_trivia.category}")),
-    Container(
-        margin: const EdgeInsets.all(5.0),
-        child: Text("Dificulaty:${_trivia.difficulty}")),
-    Center(
-      child: Container(
-          margin: const EdgeInsets.all(5.0),
-          child: Text(
-              "Question:${String.fromCharCodes(Runes(_trivia.question))}")),
-    ),
-    Container(
-        margin: const EdgeInsets.all(5.0),
-        child: Text("Answer: ${_trivia.correctAnswer}")),
-  ]);
+Widget triviaBox(Trivia _trivia, bool visible, VoidCallback toggle) {
+  return Container(
+      decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
+      child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+        Container(
+            margin: const EdgeInsets.all(10.0),
+            child: const Text(
+              "Quick Trivia",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+            )),
+        Container(
+            margin: const EdgeInsets.all(5.0),
+            child: Text(
+              _trivia.category,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 20),
+            )),
+        Container(
+            margin: const EdgeInsets.all(5.0),
+            child: Text(
+              "Dificulaty:${_trivia.difficulty}",
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 16),
+            )),
+        Center(
+          child: Container(
+              margin: const EdgeInsets.all(5.0),
+              child: Text(
+                String.fromCharCodes(Runes(_trivia.question)),
+                textAlign: TextAlign.center,
+                style:
+                    const TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+              )),
+        ),
+        Container(
+            margin: const EdgeInsets.all(5.0),
+            child: Text("Answer: ${_trivia.correctAnswer}")),
+        ElevatedButton.icon(
+          icon: const Icon(Icons.question_answer),
+          label: const Text('Refresh'),
+          onPressed: () {
+            toggle();
+          },
+        ),
+      ]));
 }
 
 Future getTrivia() async {

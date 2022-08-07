@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'models/weather.dart';
 import 'package:http/http.dart' as http;
@@ -12,6 +14,14 @@ class CurrentWeatherPage extends StatefulWidget {
 
 class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
   late Weather _weather;
+
+  @override
+  void initState() {
+    getCurrentWeather();
+    Timer.periodic(
+        const Duration(seconds: 300), (timer) => getCurrentWeather());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
