@@ -1,16 +1,20 @@
 # startup_namer
 
-A new Flutter project.
+A new Flutter project that has Firebase Integration and 3 API Widgets
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Downlord or clone the Github repository
+</br>
 
-A few resources to get you started if this is your first Flutter project:
+Open the folder in VSCode
+</br>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Please make sure you have all flutter and Android studio configuration done properly
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+</br>
+Use the following command to run the project
+```
+flutter run --no-sound-null-safety
+```
+
