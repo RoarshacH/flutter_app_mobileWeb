@@ -10,10 +10,12 @@ Downlord or clone the Github repository
 Open the folder in VSCode
 </br>
 
-Please make sure you have all flutter and Android studio configuration done properly
+Please make sure you have all flutter and Android studio configuration done properly and have a android emulator running or an android device conneted to the PC
 
 </br>
+
 Use the following command to run the project
+
 ```
 flutter run --no-sound-null-safety
 ```
